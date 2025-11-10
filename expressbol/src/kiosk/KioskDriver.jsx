@@ -423,7 +423,7 @@ export default function KioskDriver() {
 
         .h1 {
           text-align:center; color: var(--tf-title);
-          font-weight: 700; font-size: clamp(18px, 2vw, 22px);
+          font-weight: 700; font-size: clamp(18px, 2vw, 26px);
           margin: 0;
         }
         .h2 {
@@ -530,7 +530,7 @@ export default function KioskDriver() {
             <path d="M3 7h11v7h-1.5a2 2 0 0 0-3.9 0H6.4a2 2 0 0 0-3.9 0H2V9l1-2zM14 9h3.6l2.1 3v2h-1.1a2 2 0 0 0-3.9 0H14V9z" stroke="currentColor" strokeWidth="1.8"/>
           </svg>
         </div>
-        <h2 className="h1">New Driver Check-in</h2>
+        <h2 className="h1">Trucker Check-in</h2>
         <p className="h2">Please provide your details</p>
 
         {/* Form */}

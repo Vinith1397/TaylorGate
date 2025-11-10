@@ -135,7 +135,7 @@ export default function KioskHome() {
           border: 0;
           background-image: linear-gradient(90deg, var(--btn-top), var(--btn-bottom));
           color: var(--btn-text);
-          font-weight: 500; letter-spacing:.06em; text-transform: uppercase;
+          font-weight: 700; letter-spacing:.06em; 
            font-size: clamp(12px, 3vw, 18px);  /* ↑ make text larger */
           line-height: 1.15;                  /* comfy vertical rhythm */
           
@@ -186,7 +186,7 @@ export default function KioskHome() {
               </button>
 
               <button className="kbtn" onClick={() => nav("/kiosk/return")}>
-                {/* user-check icon */}
+                
                 <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path d="M12 12a4.5 4.5 0 1 0-4.5-4.5A4.5 4.5 0 0 0 12 12Z" stroke="currentColor" strokeWidth="1.6"/>
                   <path d="M4 20a8 8 0 0 1 16 0" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"/>
@@ -195,14 +195,14 @@ export default function KioskHome() {
                 {t("kiosk.homebutton2")}
               </button>
 
-              <button className="kbtn" onClick={() => nav("/kiosk/status")}>
-                {/* clipboard icon */}
+              {/* <button className="kbtn" onClick={() => nav("/kiosk/status")}>
+               
                 <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path d="M9 4h6v2h3a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h3V4Z" stroke="currentColor" strokeWidth="1.6" />
                   <path d="M9 11h6M9 15h6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
                 </svg>
                 {t("kiosk.homebutton3")}
-              </button>
+              </button> */}
             </div>
           </div>
         </div>

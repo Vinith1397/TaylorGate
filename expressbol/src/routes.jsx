@@ -14,14 +14,16 @@ import KioskReview from "./kiosk/KioskReview.jsx"
 import KioskDone from "./kiosk/KioskDone.jsx";
 import KioskReturning from "./kiosk/KioskReturning.jsx";
 import KioskStatus from "./kiosk/KioskStatus.jsx"
+import KioskSignBol from "./kiosk/KioskSignBol.jsx";
 
 export default function AppRoutes() {
   return (
     <Routes>
-      <Route path="/" element={<CheckInPage />} />
+      {/* <Route path="/" element={<CheckInPage />} /> */}
+      <Route path="/" element={<Navigate to="/kiosk" replace />} />
+      <Route path="/check-in" element={<CheckInPage />} />
       <Route path="/status/:appointmentId" element={<StatusPage />} />
       <Route path="/sign/:appId" element={<SignaturePage />} />
-
         {/* Kiosk flow */}
       <Route path="/kiosk" element={<KioskLayout />}>
         <Route index element={<KioskHome />} />
@@ -32,6 +34,8 @@ export default function AppRoutes() {
         <Route path="status" element={<KioskStatus />} />
         <Route path="details" element={<KioskDetails />} />
         <Route path="review" element={<KioskReview />} />
+        <Route path="signbol" element={<KioskSignBol />} />
+        
       </Route>
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>

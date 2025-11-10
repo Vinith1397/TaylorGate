@@ -60,7 +60,7 @@ export default function KioskFind() {
     setPosting(true);
 
     try {
-      const res = await checkOrders(poList, soList, driver);
+       const res = await checkOrders(poList, soList, driver);
 
 //       const res = {
 //   success: true,
@@ -70,7 +70,6 @@ export default function KioskFind() {
 //     soList.length > 0 ? [soList.join(",")] : ["SO-00025988, SO-00012345"],
 //   purchaseOrders: poList,
 // };
-
       console.log("orders ", poList, soList);
       console.log("Order check result:", res);
 
@@ -252,7 +251,7 @@ export default function KioskFind() {
             </div>
           </label>
 
-          <div className="center-or">Or</div>
+          <div className="center-or">OR</div>
 
           {/* Purchase Orders */}
           <label className="field">
