@@ -1,0 +1,67 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* 1) Never let the page widen */
+html, body { overflow-x: hidden; }
+*, *::before, *::after { box-sizing: border-box; }
+
+/* 2) Outer layout: clip stray px rather than widen the page */
+.page {             /* your outer <section> */
+  overflow-x: clip; /* avoids widening while keeping vertical scroll */
+}
+
+/* 3) Flex children are allowed to shrink/wrap */
+.minw0 { min-width: 0; }          /* apply to any flex item rows/columns */
+.minw0 * { min-width: 0; }        /* safe blanket when nesting */
+
+/* 4) Content can’t be wider than the card */
+.card { inline-size: min(1100px, 100%); }
+.card * { max-width: 100%; }      /* images/canvas/iframes won’t overflow */
+.card img, .card canvas, .card svg { height: auto; }
+.card pre, .card code { white-space: pre-wrap; word-break: break-word; }
+.longword { overflow-wrap: anywhere; } /* use on fields that can be long */
+
+/* 5) PrimeReact bits that often cause it */
+.p-steps, .p-steps > ul { width: 100%; min-width: 0; }
+.p-button, .p-inputtext, .p-dropdown { min-width: 0; } /* let them shrink */
+
