@@ -34,8 +34,8 @@ export const translations = {
     kiosk : {
 
       title : "Driver Check-In",
-      homebutton1 : "New Driver",
-      homebutton2 : "Returning Driver",
+      homebutton1 : "Check-in",
+      homebutton2 : "Sign/Print BOL",
       homebutton3 : "Load Status",
       drivertitle : "Driver Details",
       drivername : "Driver Name",
