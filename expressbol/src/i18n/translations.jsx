@@ -80,8 +80,8 @@ export const translations = {
     kiosk : {
 
       title :  "Registro de Conductor",
-      homebutton1 : "Nuevo controlador",
-      homebutton2 : "Conductor que regresa",
+      homebutton1 : "Registro",
+      homebutton2 : "Firmar/Imprimir BOL",
       homebutton3 : "Estado de Carga",
       drivertitle : "Detalles del conductor",
       drivername : "Nombre del conductor",

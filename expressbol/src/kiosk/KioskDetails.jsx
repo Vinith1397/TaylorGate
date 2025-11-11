@@ -1,239 +1,3 @@
-// // /src/kiosk/KioskAdditionalDetails.jsx
-// import { useEffect, useState } from "react";
-// import { useNavigate, useLocation } from "react-router-dom";
-
-// export default function KioskAdditionalDetails() {
-//   const nav = useNavigate();
-//   const { state } = useLocation();
-//   const driver = state?.driver;
-//   const orders = state?.orders || [];
-//   const id = state?.id || "";
-
-//   useEffect(() => {
-//     if (!driver || orders.length === 0) nav("/kiosk", { replace: true });
-//   }, [driver, orders, nav]);
-
-//   // Vehicle / load details
-//   const [carrierName, setCarrierName] = useState("");
-//   const [trailerLP, setTrailerLP] = useState("");
-//   const [trailerState, setTrailerState] = useState("");
-//   const [tractorNumber, setTractorNumber] = useState("");
-//   const [trailerNumber, setTrailerNumber] = useState("");
-//   const [driverlicense ,setDriverLicense] = useState("")
-//   const [driverlicensestate ,setDriverLicenseState] = useState("")
-//   const [federalInspection, setFederalInspection] = useState("");
-//   const [err, setErr] = useState("");
-
-//   const canContinue =
-//     carrierName && trailerLP && trailerState && trailerNumber && tractorNumber;
-
-//   function onNext() {
-//     // if (!canContinue) {
-//     //   setErr("Please fill all required fields before continuing.");
-//     //   return;
-//     // }
-
-//     setErr("");
-//     nav("/kiosk/review", {
-//       state: {
-//         driver,
-//         orders,
-//         id,
-//         vehicle: {
-//           driverlicense,
-//           driverlicensestate,
-//           carrierName,
-//           trailerLP,
-//           trailerState,
-//           tractorNumber,
-//           trailerNumber,
-//           federalInspection,
-//         },
-//       },
-//     });
-//   }
-
-//   return (
-//     <section
-//       style={{
-//         minHeight: "100svh",
-//         display: "grid",
-//         placeItems: "center",
-//         padding: "min(4vh, 28px)",
-//         backgroundImage: 'url("/images/panel_background.png")',
-//         backgroundRepeat: "repeat",
-//         backgroundSize: "520px auto",
-//         backgroundColor: "#F5F1E6",
-//       }}
-//     >
-//       <style>{`
-//         .sheet {
-//           width: min(820px, 92vw);
-//           background: #f2f7cef;
-//           border-radius: 18px;
-//           box-shadow: 0 10px 30px rgba(0,0,0,.15);
-//           padding: clamp(20px, 3.5vh, 36px);
-//           border: 1px solid rgba(0,0,0,.08);
-//         }
-//         .title {
-//           font-weight: 800;
-//           font-size: clamp(22px, 2.6vw, 28px);
-//           text-align: center;
-//           margin-bottom: 20px;
-//           color: #111;
-//         }
-//         .field {
-//           display: grid;
-//           gap: 6px;
-//           margin-bottom: 12px;
-//         }
-//         .label {
-//           font-weight: 700;
-//           color: #333;
-//         }
-//         .input {
-//           height: 52px;
-//           border-radius: 12px;
-//           border: 2px solid #c9c9c9;
-//           padding: 0 14px;
-//           font-size: 18px;
-//         }
-//         .btn {
-//           appearance: none;
-//           border: 0;
-//           cursor: pointer;
-//           width: 100%;
-//           height: 60px;
-//           border-radius: 999px;
-//           font-size: 20px;
-//           font-weight: 900;
-//           color: #000;
-//           background: #31b32dbb;
-//           border: 2px solid #111;
-//           box-shadow: 0 6px 16px rgba(0,0,0,.12);
-//           transition: transform .06s ease, filter .12s ease, opacity .12s ease;
-//         }
-//         .btn:active { transform: translateY(1px) scale(.995); }
-//         .btn[disabled] { opacity: .6; cursor: not-allowed; }
-//         .btn-ghost {
-//           background: #fff;
-//           color: #222;
-//           border: 2px solid #c9c9c9;
-//         }
-//         .err {
-//           color: #b00020;
-//           font-weight: 700;
-//           text-align: center;
-//           margin-top: 10px;
-//         }
-//       `}</style>
-
-//       <div className="sheet">
-//         <h2 className="title">Vehicle & Load Details</h2>
-
-//           <div className="field">
-//           <label className="label">Driver's License </label>
-//           <input
-//             className="input"
-//             value={driverlicense}
-//             onChange={(e) => setDriverLicense(e.target.value)}
-//             placeholder="Type Driver Licesne"
-//           />
-//         </div>
-
-        
-//           <div className="field">
-//           <label className="label">Driver's License State</label>
-//           <input
-//             className="input"
-//             value={driverlicensestate}
-//             onChange={(e) => setDriverLicenseState(e.target.value)}
-//             placeholder="e.g., TX, CA, NY"
-//           />
-//         </div>
-
-//         <div className="field">
-//           <label className="label">Carrier Name</label>
-//           <input
-//             className="input"
-//             value={carrierName}
-//             onChange={(e) => setCarrierName(e.target.value)}
-//             placeholder="Type Carrier Name"
-//           />
-//         </div>
-
-//         <div className="field">
-//                 <label className="label">Trailer Number</label>
-//                 <input
-//                     className="input"
-//                     value={trailerNumber}
-//                     onChange={(e) => setTrailerNumber(e.target.value)}
-//                     placeholder="Enter Trailer Number"
-//                 />
-//                 </div>
-
-//         <div className="field">
-//           <label className="label">Trailer License Plate #</label>
-//           <input
-//             className="input"
-//             value={trailerLP}
-//             onChange={(e) => setTrailerLP(e.target.value)}
-//             placeholder="Enter Trailer LP #"
-//           />
-//         </div>
-
-//         <div className="field">
-//           <label className="label">Trailer State</label>
-//           <input
-//             className="input"
-//             value={trailerState}
-//             onChange={(e) => setTrailerState(e.target.value)}
-//             placeholder="e.g., TX, CA, NY"
-//           />
-//         </div>
-//         <div className="field">
-//           <label className="label">Tractor Number</label>
-//           <input
-//             className="input"
-//             value={tractorNumber}
-//             onChange={(e) => setTractorNumber(e.target.value)}
-//             placeholder="Enter Tractor Number"
-//           />
-//         </div>
-
-//         <div className="field">
-//           <label className="label">Federal Inspection Number (optional)</label>
-//           <input
-//             className="input"
-//             value={federalInspection}
-//             onChange={(e) => setFederalInspection(e.target.value)}
-//             placeholder="Enter Federal Inspection Number"
-//           />
-//         </div>
-
-//         <div style={{ display: "grid", gap: "10px", marginTop: "16px" }}>
-//           <button
-//             className="btn-ghost"
-//             onClick={() => nav(-1)}
-//           >
-//             Back
-//           </button>
-//           <button
-//             className="btn"
-//             onClick={onNext}
-//             // disabled={!canContinue}
-//           >
-//             Continue to Review
-//           </button>
-//         </div>
-
-//         {err && <p className="err">{err}</p>}
-//       </div>
-//     </section>
-//   );
-// }
-
-
 // /src/kiosk/KioskAdditionalDetails.jsx
 import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -264,10 +28,7 @@ export default function KioskAdditionalDetails() {
     carrierName && trailerLP && trailerState && trailerNumber && tractorNumber;
 
   function onNext() {
-    // if (!canContinue) {
-    //   setErr("Please fill all required fields before continuing.");
-    //   return;
-    // }
+  
     setErr("");
     nav("/kiosk/review", {
       state: {
@@ -346,15 +107,15 @@ export default function KioskAdditionalDetails() {
 
         .title{
           text-align:center; color:var(--tf-title);
-          font-weight:700; font-size: clamp(20px, 2.4vw, 24px);
+          font-weight:300; font-size: clamp(26px, 2.4vw, 34px);
           margin: 0 0 14px 0;
         }
 
-        .field{ display:grid; gap:6px; margin-bottom:12px; }
-        .label{ font-weight:800; color:var(--tf-title); font-size:14px; }
+        .field{ display:grid; gap:3px; margin-bottom:12px; }
+        .label{ font-weight:300; color:var(--tf-title); font-size:18px; }
 
         .input{
-          height: 54px;
+          height: 44px;
           border-radius: 14px;
           padding: 0 14px;
           font-size: 16px;
@@ -374,11 +135,13 @@ export default function KioskAdditionalDetails() {
 
         .btn{
           appearance:none; border:0; cursor:pointer;
-          width:100%; height:58px; border-radius:14px;
+          width:40%; height:48px; border-radius:14px;
           display:flex; align-items:center; justify-content:center;
-          font-weight:900; letter-spacing:.02em;
+          font-weight:500; letter-spacing:.02em;
           box-shadow: 0 10px 20px rgba(0,0,0,.12);
           transition: transform .08s ease, box-shadow .12s ease, background .12s ease;
+          font-size:25px;
+          margin-left:190px
         }
         .btn-primary{
           color:#fff;
@@ -391,11 +154,11 @@ export default function KioskAdditionalDetails() {
         .btn-ghost{
           background:#fff; color:var(--tf-title);
           border:2px solid #D7DBCD;
-          box-shadow:none; font-weight:800;
+          box-shadow:none; font-weight:500;
         }
         .btn:active{ transform: translateY(2px); }
 
-        .err{ color:#b00020; font-weight:700; text-align:center; margin-top:10px; }
+        .err{ color:#b00020; font-weight:500; text-align:center; margin-top:10px; }
       `}</style>
 
       <div className="sheet">

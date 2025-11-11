@@ -470,8 +470,8 @@ export default function KioskReview() {
 
         .title{
           text-align:center; color:#143a14;
-          font-size:clamp(22px, 2.6vw, 30px);
-          font-weight:800; margin:0 0 10px 0;
+          font-size:clamp(22px, 2.6vw, 36px);
+          font-weight:500; margin:0 0 10px 0;
         }
 
         /* Details panel */
@@ -491,14 +491,16 @@ export default function KioskReview() {
         }
         .details-row:last-child{ border-bottom:none; }
         .details-label{
-          font-weight:800; color:#1b2d1b;
-          font-size:clamp(15px, 1.8vw, 17px);
+          font-weight:500; color:#1b2d1b;
+          font-size:clamp(10px, 1.8vw, 17px);
           flex:1 1 42%; max-width:320px;
+          font-size: 16px;
         }
         .details-value{
-          color:#243824; font-weight:600;
-          font-size:clamp(15px, 1.8vw, 17px);
+          color:#243824; font-weight:100;
+          font-size:clamp(10px, 1.8vw, 17px);
           flex:1 1 55%; text-align:right; word-break:break-word;
+           font-size: 16px;
         }
         @media (max-width:640px){
           .details-row{ flex-direction:column; align-items:flex-start; }
@@ -516,12 +518,12 @@ export default function KioskReview() {
         }
         .confirm h3{
           text-align:center; color:#1a3a3a; margin:0 0 10px 0;
-          font-size:clamp(18px, 2vw, 22px); font-weight:800;
+          font-size:clamp(18px, 2vw, 22px); font-weight:300;
         }
         .checkboxes{ display:flex; flex-wrap:wrap; gap:14px; justify-content:center; }
-        .checkboxes label{ display:flex; align-items:center; gap:8px; font-weight:700; color:#223; }
+        .checkboxes label{ display:flex; align-items:center; gap:8px; font-weight:700; color:#223;font-size:16px }
 
-        .temp-box{ display:flex; align-items:center; justify-content:center; gap:8px; margin-top:10px; font-weight:700; color:#223; }
+        .temp-box{ display:flex; align-items:center; justify-content:center; gap:8px; margin-top:10px; font-weight:500; color:#223;font-size:16px }
         .temp-box input{
           width:90px; height:42px; text-align:center;
           border:2px solid #CFE0C5; border-radius:10px; font-size:18px; outline:none;
@@ -531,15 +533,15 @@ export default function KioskReview() {
         }
 
         .question{
-          text-align:center; font-size:clamp(20px, 2.4vw, 26px);
-          color:#143a14; font-weight:900; margin:18px 0 6px 0;
+          text-align:center; font-size:clamp(20px, 2.4vw, 28px);
+          color:#143a14; font-weight:500; margin:18px 0 6px 0;
         }
 
         /* Buttons */
         .buttons{ display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-top:12px; }
         .btn{
           min-width:200px; height:56px; border-radius:14px;
-          font-size:clamp(18px, 2.2vw, 20px); font-weight:900;
+          font-size:clamp(24px, 2.2vw, 26px); font-weight:500;
           border:none; cursor:pointer;
           box-shadow:0 10px 20px rgba(0,0,0,.12);
           transition:transform .08s ease, box-shadow .12s ease, background .12s ease, opacity .12s ease;

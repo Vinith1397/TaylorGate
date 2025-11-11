@@ -90,14 +90,14 @@ export default function KioskDone() {
 
         .title{
           margin:0 0 4px 0;
-          font-weight:900;
-          font-size:clamp(22px, 2.6vw, 30px);
+          font-weight:500;
+          font-size:clamp(22px, 2.6vw, 36px);
           color:var(--tf-title);
         }
         .subtitle{
           margin:6px 0 18px 0;
-          color:#2c3b2c; font-weight:600;
-          font-size:clamp(16px, 1.8vw, 18px);
+          color:#2c3b2c; font-weight:500;
+          font-size:clamp(14px, 1.8vw, 22px);
         }
 
         .info-box{
@@ -117,12 +117,12 @@ export default function KioskDone() {
           padding-bottom:6px;
         }
         .label{
-          font-weight:700; color:#333;
-          font-size:clamp(15px, 1.8vw, 17px);
+          font-weight:500; color:#333;
+          font-size:clamp(15px, 1.8vw, 22px);
         }
         .value{
           font-weight:500; color:#111;
-          font-size:clamp(15px, 1.8vw, 17px);
+          font-size:clamp(15px, 1.8vw, 22px);
           text-align:right;
           word-break:break-word;
         }
@@ -130,8 +130,8 @@ export default function KioskDone() {
         .btn{
           appearance:none; border:0; cursor:pointer;
           min-width: 180px; height:58px; border-radius:14px;
-          font-size: clamp(18px, 2.2vw, 20px);
-          font-weight: 900; letter-spacing:.02em;
+          font-size: clamp(18px, 2.2vw, 26px);
+          font-weight: 500; letter-spacing:.02em;
           color:#fff;
           background:linear-gradient(90deg, var(--tf-green), #8BC850);
           box-shadow:0 10px 20px rgba(0,0,0,.12);
@@ -143,8 +143,8 @@ export default function KioskDone() {
         }
         .btn:active{ transform: translateY(2px); }
 
-        .hint{ color:#2c3b2c; font-weight:600; margin-top:10px; }
-        .count{ color:#445; margin-top:4px; }
+        .hint{ color:#2c3b2c; font-weight:500; margin-top:10px;font-size:14px }
+        .count{ color:#445; margin-top:4px;font-size:16px }
       `}</style>
 
       <div className="sheet">

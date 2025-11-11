@@ -521,12 +521,12 @@ async function onContinue() {
         .brand img{ width:156px; display:block; }
         .title{
           margin: 24px 0 18px; text-align:center;
-          font-weight: 800; letter-spacing:.02em;
+          font-weight: 500; letter-spacing:.02em;
           color: var(--txt-1);
-          font-size: clamp(20px, 2.2vw, 26px);
+          font-size: clamp(26px, 2.2vw, 36px);
         }
         .group{ margin-top: 14px; }
-        .group small{ display:block; margin: 6px 2px 10px; color:#5f6a5f; font-weight:700; }
+        .group small{ display:block; margin: 6px 2px 10px; color:#5f6a5f; font-weight:500;font-size:19px }
         .row{
           display:grid; grid-template-columns: 1fr auto; gap:10px;
           background:#fff; border: 2px solid #c9c9c9; border-radius: 14px;
@@ -535,14 +535,14 @@ async function onContinue() {
         .input{ width:100%; height:54px; border:0; outline:0; padding: 0 14px; font-size: 16px; border-radius: 10px; }
         .add-btn{
           height: 46px; padding: 0 16px; border-radius: 12px; border:0; cursor:pointer;
-          font-weight:800; color: var(--ytext);
+          font-weight:500; color: var(--ytext);
           background-image: linear-gradient(90deg, var(--y1), var(--y2));
           box-shadow: 0 8px 14px rgba(0,0,0,.14), 0 6px 0 rgba(0,0,0,.14);
           transition: transform .06s ease, box-shadow .12s ease, filter .12s ease;
         }
         .add-btn:hover{ background-image: linear-gradient(90deg, var(--y1h), var(--y2h)); }
         .add-btn:active{ transform: translateY(2px); box-shadow: 0 4px 0 rgba(0,0,0,.18); }
-        .or{ text-align:center; margin: 16px 0 6px; color:#6b6b6b; font-weight:800; }
+        .or{ text-align:center; margin: 16px 0 6px; color:#6b6b6b; font-weight:500; }
         .chips{ display:flex; flex-wrap:wrap; gap:8px; margin:10px 2px 0; }
         .chip{
           background:#fff; border:1px solid #d7dfcd; color:#375437;
@@ -552,11 +552,11 @@ async function onContinue() {
         .tip{
           margin-top:16px; padding: 10px 12px; border-radius: 12px;
           background: #eff8df; color:#204c20; border:1px solid rgba(0,0,0,.08);
-          font-weight:700; text-align:center;
+          font-weight:500; text-align:center;font-size:16px
         }
         .actions{ display:grid; grid-template-columns: 1fr 1fr; gap:14px; margin-top:18px; }
         @media (max-width:640px){ .actions{ grid-template-columns:1fr; } }
-        .btn{ height:56px; border:0; cursor:pointer; border-radius:16px; font-weight:900; font-size:16px;
+        .btn{ height:56px; border:0; cursor:pointer; border-radius:16px; font-weight:600; font-size:18px;
           box-shadow: 0 14px 22px rgba(0,0,0,.16), 0 10px 0 rgba(0,0,0,.16); }
         .btn:disabled{ opacity:.6; cursor:not-allowed; }
         .btn-ghost{ background:#fff; border:2px solid #c9c9c9; box-shadow:0 6px 16px rgba(0,0,0,.12); }
@@ -575,7 +575,7 @@ async function onContinue() {
 
           {/* Truck ID */}
           <div className="group">
-            <small>Enter Truck ID</small>
+            <small >Enter Truck ID</small>
             <div className="row">
               <input
                 className="input"
