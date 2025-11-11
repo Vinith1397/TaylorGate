@@ -120,7 +120,7 @@ export default function KioskHome() {
         .title{
           text-align:center; color: var(--subtitle-text);
           font-weight: 800; font-size: clamp(16px, 1.5vw, 18px);
-          letter-spacing:.12em; text-transform: uppercase; margin-top: 4px; margin-bottom: 24px;
+          letter-spacing:.12em;  margin-top: 4px; margin-bottom: 24px;
         }
 
         /* Buttons column */
@@ -129,14 +129,15 @@ export default function KioskHome() {
         /* Yellow pill buttons + hover darken */
         .kbtn{
           display:flex; align-items:center; justify-content:center; gap:10px;
-          width:100%; height:74px;
+          width:60%; height:74px;
+          margin-left: 110px;
           padding: 0 22px;
           border-radius: 20px;
           border: 0;
           background-image: linear-gradient(90deg, var(--btn-top), var(--btn-bottom));
           color: var(--btn-text);
-          font-weight: 700; letter-spacing:.06em; 
-           font-size: clamp(12px, 3vw, 18px);  /* ↑ make text larger */
+          font-weight: 500; letter-spacing:.06em; 
+           font-size: clamp(18px, 3vw, 24px);  /* ↑ make text larger */
           line-height: 1.15;                  /* comfy vertical rhythm */
           
           box-shadow:
@@ -152,7 +153,7 @@ export default function KioskHome() {
         }
         .kbtn:active{ transform: translateY(4px); box-shadow: 0 10px 0 rgba(0,0,0,.26); }
         .kbtn:focus-visible{ outline:3px solid rgba(0,0,0,.25); outline-offset:3px; }
-        .kbtn svg{ width:26px; height:24px; opacity:.95; }
+        .kbtn svg{ width:30px; height:28px; opacity:.95; }
       `}</style>
 
       <div className="wrap">

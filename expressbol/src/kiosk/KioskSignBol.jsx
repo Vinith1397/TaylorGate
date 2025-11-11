@@ -49,7 +49,9 @@ export default function KioskSignBol() {
       if (!canvas) return;
 
       const cssW = boxRef.current.clientWidth || 800;
-      const cssH = Math.max(180, Math.min(320, Math.round(window.innerHeight * 0.35)));
+    //  const cssH = Math.max(180, Math.min(320, Math.round(window.innerHeight * 0.35)));
+     const cssH = Math.round(Math.min(520, Math.max(220, window.innerHeight * 0.40)));
+
 
       canvas.width = cssW;
       canvas.height = cssH;
@@ -147,7 +149,7 @@ export default function KioskSignBol() {
       }
 
       // Show the single combined signed PDF
-      setSignedLinks([{ so: "Combined", url: combinedUrl }]);
+      setSignedLinks([{so:"Combined", url: combinedUrl }]);
       setInfo("Combined signed BOL generated.");
       // Optional: clear pad on success
       // sigRef.current.clear();
@@ -200,7 +202,28 @@ export default function KioskSignBol() {
           --g1:#8BC34A; --g2:#79B73E; --g1h:#7CB342; --g2h:#6AA936;
           --panel:#eef6dc; --panelBorder:#d6e4c0;
         }
-        .wrap{ width:min(1120px, 95vw); position: relative; }
+        // .wrap{ width:min(1120px, 95vw); position: relative; }
+
+        /* Container */
+.wrap{
+  width: 100%;
+  max-width: clamp(960px, 96vw, 1440px);  /* grows up to 1440 before capping */
+  margin-inline: auto;
+  position: relative;
+}
+
+/* Page section height */
+section.kiosk-root{           /* or apply to your <section> */
+  min-height: 100dvh;         /* better on iPadOS; fallback below if you want */
+  /* min-height: 100svh; */   /* keep if you prefer safe-area sizing */
+  padding: clamp(16px, 3vh, 32px);
+}
+
+/* Grid can stay, but you might want a wider breakpoint for two columns */
+@media (max-width: 1024px){
+  .grid{ grid-template-columns: 1fr; }
+}
+
 
         .sheet{
           background: linear-gradient(130deg, var(--cream), var(--cream2));
@@ -223,11 +246,11 @@ export default function KioskSignBol() {
           border:2px solid #c9c9c9; border-radius:12px; padding:6px 10px;
         }
         .search input{
-          flex:1; height:44px; border:0; outline:0; font-size:16px; border-radius:10px; padding:0 10px;
+          flex:1; height:44px; border:0; outline:0; font-size:18px; border-radius:10px; padding:0 10px;
           background:#fff;
         }
         .btn{
-          height:44px; border:0; cursor:pointer; border-radius:12px; font-weight:900; padding:0 16px;
+          height:44px; border:0; cursor:pointer; border-radius:12px; font-weight:500;font-size: 22px ;padding:0 16px;
           box-shadow: 0 12px 18px rgba(0,0,0,.12), 0 8px 0 rgba(0,0,0,.12);
         }
         .btn-ghost{ background:#fff; border:2px solid #c9c9c9; }
@@ -243,7 +266,7 @@ export default function KioskSignBol() {
           background: var(--panel); border:2px solid var(--panelBorder);
           border-radius:16px; padding:12px;
         }
-        .h{ margin:4px 0 12px; font-weight:800; color:#1a3a3a; }
+        .h{ margin:4px 0 12px; font-weight:500; color:#1a3a3a; }
 
         .list{ display:flex; flex-direction:column; gap:10px; }
         .row{
@@ -253,7 +276,7 @@ export default function KioskSignBol() {
         .actions{ display:flex; gap:8px; flex-wrap:wrap; }
 
         .sigwrap{ background:#fff; border:2px dashed #b7cf98; border-radius:16px; padding:8px; }
-        .msg{ font-weight:800; margin-top:8px; }
+        .msg{ font-weight:500; margin-top:8px; }
         .ok{ color:#0c4b2e; } .err{ color:#b00020; }
       `}</style>
 
@@ -266,7 +289,7 @@ export default function KioskSignBol() {
           {/* Top toolbar */}
           <div className="toolbar">
             <div className="search">
-              <span style={{ fontWeight: 900, color: "#234b23" }}>
+              <span style={{ fontWeight: 900, color: "#234b23",fontSize: "20px"}}>
                 {truckId ? "Truck" : "Orders"}
               </span>
               <input
@@ -301,7 +324,7 @@ export default function KioskSignBol() {
                   <div key={r.salesOrderNumber || r.id || r.bolUrl} className="row">
                     <div>
                       <div style={{ fontWeight: 800, color: "#0c2f1a" }}>
-                        SO: {r.salesOrderNumber || "—"}
+                        {r.salesOrderNumber || "—"}
                       </div>
                     </div>
                     <div className="actions">

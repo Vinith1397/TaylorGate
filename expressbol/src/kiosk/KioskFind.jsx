@@ -144,13 +144,13 @@ export default function KioskFind() {
 
         .title{
           text-align:center; color:var(--tf-title);
-          font-weight:700; font-size:clamp(20px, 2.4vw, 24px); margin:0 0 14px 0;
+          font-weight:500; font-size:clamp(26px, 2.4vw, 36px); margin:0 0 14px 0;
         }
 
         .form{ display:grid; gap:22px; }
 
-        .label{ display:block; font-weight:800; color:var(--tf-title); font-size:14px; margin-bottom:6px; }
-        .sublabel{ font-size:12px; color:#666; margin:-2px 0 8px; }
+        .label{ display:block; font-weight:500; color:var(--tf-title); font-size:22px; margin-bottom:6px; }
+        .sublabel{ font-size:14px; color:#666; margin:-2px 0 8px; }
 
         .field-surface{
           background:#fff; border:1px solid #D7DBCD; border-radius:14px; padding:8px;
@@ -162,7 +162,7 @@ export default function KioskFind() {
           width:100%; height:56px; padding:0 16px;
           background:var(--tf-input-bg);
           border:2px solid var(--tf-input-border);
-          border-radius:12px; font-size:16px; outline:none;
+          border-radius:12px; font-size:22px; outline:none;
         }
         .control:focus,
         .field-surface input[type="text"]:focus{
@@ -202,11 +202,11 @@ export default function KioskFind() {
   background:#fff;
 }
 
-        .center-or{ text-align:center; color:#666; font-weight:700; }
+        .center-or{ text-align:center; color:#666; font-weight:700; font-size:23px }
 
         .info{
           background:#F0F7E9; border-left:4px solid var(--tf-green);
-          padding:12px 14px; border-radius:10px; color:var(--tf-title); font-size:12px; line-height:1.4;
+          padding:12px 14px; border-radius:10px; color:var(--tf-title); font-size:14px; line-height:1.4;
         }
 
         .row{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
@@ -215,9 +215,10 @@ export default function KioskFind() {
         .btn{
           appearance:none; border:0; cursor:pointer; width:100%; height:56px; border-radius:14px;
           display:flex; align-items:center; justify-content:center;
-          font-weight:900; letter-spacing:.02em;
+          font-weight:500; letter-spacing:.02em;
           box-shadow:0 10px 20px rgba(0,0,0,.12);
           transition:transform .08s ease, box-shadow .12s ease, background .12s ease, opacity .12s ease;
+          font-size:22px
         }
         .btn:active{ transform:translateY(2px); }
         .btn-primary{ background:linear-gradient(90deg, var(--tf-green), #8BC850); color:#fff; }

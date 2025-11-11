@@ -407,6 +407,7 @@ export default function KioskDriver() {
           cursor: pointer;
           width:max-content;
           margin-bottom: 12px;
+          font-size:14px
         }
         .back:hover { color: var(--tf-green-dark); }
         .back svg{ width:18px; height:18px; }
@@ -423,12 +424,12 @@ export default function KioskDriver() {
 
         .h1 {
           text-align:center; color: var(--tf-title);
-          font-weight: 700; font-size: clamp(18px, 2vw, 26px);
+          font-weight: 500; font-size: clamp(28px, 2vw, 36px);
           margin: 0;
         }
         .h2 {
           text-align:center; color: var(--tf-subtle);
-          font-weight: 600; font-size: clamp(13px, 1.6vw, 15px);
+          font-weight: 600; font-size: clamp(16px, 1.6vw, 18px);
           margin: 6px 0 18px 0;
         }
 
@@ -436,8 +437,8 @@ export default function KioskDriver() {
         .field { display:grid; gap: 10px; }
 
         .label {
-          font-weight: 800; color: var(--tf-title);
-          font-size: clamp(14px, 1.6vw, 16px);
+          font-weight: 500; color: var(--tf-title);
+          font-size: clamp(18px, 1.6vw, 24px);
         }
 
         .control {
@@ -473,13 +474,13 @@ export default function KioskDriver() {
         /* Primary big green gradient button */
         .btn {
           appearance:none; border:0; cursor:pointer;
-          width: min(360px, 100%);
+          width: min(260px, 100%);
           height: 58px;
           border-radius: 16px;
           background: linear-gradient(90deg, var(--tf-green), #8BC850);
           color:#fff;
-          font-weight: 900; letter-spacing:.04em;
-          font-size: clamp(16px, 2vw, 18px);
+          font-weight: 500; letter-spacing:.04em;
+          font-size: clamp(20px, 2vw, 20px);
           display:flex; align-items:center; justify-content:center; gap:10px;
           box-shadow: 0 10px 20px rgba(0,0,0,.12);
           transition: transform .08s ease, filter .12s ease, box-shadow .12s ease, background .12s ease;
@@ -489,8 +490,8 @@ export default function KioskDriver() {
           box-shadow: 0 14px 24px rgba(0,0,0,.16);
         }
           .btn svg {
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
 }
         .btn:active{ transform: translateY(3px); box-shadow: 0 8px 18px rgba(0,0,0,.14); }
         .btn[disabled]{ opacity:.6; cursor:not-allowed; }
@@ -502,11 +503,12 @@ export default function KioskDriver() {
           background:#fff;
           color: var(--tf-title);
           border:2px solid var(--tf-input-border);
-          font-weight:800;
+          font-weight:500;
+          font-size :23px
         }
 
-        .muted { text-align:center; color:#6a756a; font-size:12px; }
-        .err  { color:#b00020; font-weight:700; text-align:center; }
+        .muted { text-align:start; color:#6a756a; font-size:12px; }
+        .err  { color:#b00020; font-weight:500; text-align:center; }
       `}</style>
        {/* <div className="brand">
               <img style={{ width: "156px" ,marginBottom : "0px"}} src="/images/taylor-farms-logo-Picsart.png" alt="Taylor Farms" />
@@ -561,6 +563,8 @@ export default function KioskDriver() {
           </div>
 
           <div className="info">
+            <input style={{width : "12px",height : "12px"
+            }}type="checkbox" />
             By verifying your mobile number, you agree to receive transactional SMS
             (OTP, check-in, and BOL status updates) from Taylor Farms for this visit.
             Msg &amp; data rates may apply.
