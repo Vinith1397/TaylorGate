@@ -15,6 +15,7 @@ export default function KioskSignBol() {
   // Inputs from previous page
   const query = state?.query || {};
   const truckId = (query?.truckId || "").trim();
+  const id = state?.query?.id || "" ;
   const appointmentId = (query?.appointmentId || "").trim(); // optional
 
   // Expect results with BOL URLs (e.g., r.bolUrl or r.url)
@@ -90,11 +91,7 @@ export default function KioskSignBol() {
 
     // Determine TruckId to send (server requires a value)
     const truck = (truckId || appointmentId || "").trim();
-    if (!truck) {
-      setErr("Missing Truck/Appointment ID to submit signature.");
-      return;
-    }
-
+   
     try {
       setSigning(true);
 
@@ -105,7 +102,8 @@ export default function KioskSignBol() {
 
       // Build FormData as API expects
       const form = new FormData();
-      form.append("TruckId", truck); // required
+      //form.append("TruckId", truck); // required
+      form.append("id", String(id)); // required
       form.append("pngSing", file, file.name); // required (field name EXACT)
       form.append("metaJson", JSON.stringify({ BlobLinks: links })); // required JSON string
 

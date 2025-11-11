@@ -398,12 +398,12 @@ export default function KioskReview() {
       //     received: payload,
       //   }
       // }
-      const checkInTime = res?.checkInTime;
-
+      const checkInTime = res?.data?.checkInTime;
+       console.log( "res",res)
       if (
-        res?.success ||
+        res?.data?.success ||
         /success/i.test(res?.message || "") ||
-        res?.data?.message === "Check-in confirmed"
+        res?.data?.message === "Check-in Confirmed"
       ) {
         nav("/kiosk/done", {
           state: {
@@ -455,7 +455,7 @@ export default function KioskReview() {
         }
 
         .sheet{
-          width:min(920px, 94vw);
+          width:min(820px, 94vw);
           position:relative;
           background:linear-gradient(130deg, var(--tf-cream), var(--tf-cream-2));
           border:4px solid var(--tf-green);

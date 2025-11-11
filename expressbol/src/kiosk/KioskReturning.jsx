@@ -375,6 +375,7 @@
 // KioskReturning.jsx
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Divider } from "primereact/divider";
 
 // ===== CHANGE ME if your API path differs (you pasted this host) =====
 
@@ -393,6 +394,8 @@ export default function KioskReturning() {
   const [loading, setLoading] = useState(false);
   const [err, setErr] = useState("");
 
+  
+
   const addSO = () => {
     const v = soInput.trim();
     if (!v) return;
@@ -408,68 +411,73 @@ export default function KioskReturning() {
   const removeSO = (id) => setSoList((xs) => xs.filter((x) => x !== id));
   const removePO = (id) => setPoList((xs) => xs.filter((x) => x !== id));
 
-  const SEARCH_URL = 
-  `https://mojo-demo-api-dth5ccfccxbbcshb.westus-01.azurewebsites.net/api/Admin/appointment/truck/${truckId}`;
-  async function onContinue() {
-    setErr("");
-    if (!truckId && soList.length === 0 && poList.length === 0) {
-      setErr("Please enter Truck ID or at least one Sales/Purchase Order ID.");
+  const BOL_SEARCH_API =
+  "https://mojo-demo-api-dth5ccfccxbbcshb.westus-01.azurewebsites.net/api/Admin/appointment/bol";
+
+async function onContinue() {
+  setErr("");
+  if (!truckId && soList.length === 0 && poList.length === 0) {
+    setErr("Please enter Truck ID or at least one Sales/Purchase Order ID.");
+    return;
+  }
+
+  try {
+    setLoading(true);
+
+    // Build query string
+    const url = new URL(BOL_SEARCH_API);
+    if (truckId.trim()) url.searchParams.set("truckId", truckId.trim());
+    for (const so of soList) {
+      const v = so?.trim();
+      if (v) url.searchParams.append("salesOrderIds", v); // array param
+    }
+    // If backend supports POs later, append here with correct param name
+
+    const res = await fetch(url.toString(), {
+      method: "GET",
+      headers: { accept: "application/json" },
+    });
+    if (!res.ok) {
+      const text = await res.text();
+      throw new Error(text || `Search failed (${res.status}).`);
+    }
+
+    const data = await res.json();
+    console.log("response data",data)
+     const id = data?.viewBolResponses?.id
+     console.log("response data",id)
+    // ✅ Correct path to results
+    const list = data?.viewBolResponses?.viewBolResponses ?? [];
+
+    if (!Array.isArray(list) || list.length === 0) {
+      setErr("No BOLs found for the given details.");
       return;
     }
 
-    // Build a flexible query string. Your backend can read any of these keys.
-    // const qs = new URLSearchParams();
-    // if (truckId.trim()) qs.set("truckId", truckId.trim());
-    // if (soList.length) qs.set("salesOrders", soList.join(","));
-    // if (poList.length) qs.set("purchaseOrders", poList.join(","));
+    // Normalize for next page
+    const results = list.map(x => ({
+      salesOrderNumber: x?.salesOrderNumber || "",
+      bolUrl: x?.blobUrlLink || "",
+    }));
 
-    try {
-      setLoading(true);
-      // const res = await fetch(`${SEARCH_URL}?${qs.toString()}`, {
-         const res = await fetch(`${SEARCH_URL}`, {
-        method: "GET",
-      });
-
-      if (!res.ok) {
-        const text = await res.text();
-        throw new Error(text || `Search failed (${res.status}).`);
-      }
-
-      const data = await res.json();
-      // Expecting:
-      // { message: "Success", downloadLinks: [{ salesOrderNumber, blobUrlLink }] }
-      const raw = Array.isArray(data?.downloadLinks) ? data.downloadLinks : [];
-
-      if (!raw.length) {
-        setErr("No BOLs found for the given details.");
-        return;
-      }
-
-      // Normalize results for the next page
-      const results = raw.map((r) => ({
-        salesOrderNumber: r?.salesOrderNumber || "",
-        bolUrl: r?.blobUrlLink || "",
-      }));
-
-      nav("/kiosk/signbol", {
-        state: {
-          query: {
-            truckId: truckId.trim() || null,
-            salesOrders: soList,
-            purchaseOrders: poList,
-          },
-          results,
+    nav("/kiosk/signbol", {
+      state: {
+        query: {
+          truckId: truckId.trim() || null,
+          id : id,
+          salesOrders: soList,
+          purchaseOrders: poList, // harmless to carry forward
         },
-      });
-    } catch (e) {
-      setErr(
-        e?.message ||
-          "We couldn’t fetch BOLs right now. Please verify the details and try again."
-      );
-    } finally {
-      setLoading(false);
-    }
+        results,
+      },
+    });
+  } catch (e) {
+    setErr(e?.message || "We couldn’t fetch BOLs right now. Please verify the details and try again.");
+  } finally {
+    setLoading(false);
   }
+}
+
 
   return (
     <section
