@@ -2,6 +2,8 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useI18n } from "../i18n/I18nProvider";
+import 'primeicons/primeicons.css';
+
 
 export default function KioskHome() {
   const nav = useNavigate();
@@ -49,6 +51,12 @@ export default function KioskHome() {
           --card-border: #7AB844;         /* matches figma green frame */
           --card-shadow: rgba(0, 0, 0, .22);
 
+          //  --btn-top: #7AB844;             /* figma yellow/orange */
+          // --btn-bottom: #7AB844;
+          // --btn-hover-top: #F5A623;
+          // --btn-hover-bottom: #FDB750;
+          // --btn-text: #f0f6f6ff;            /* deep greenish text */
+          // --btn-shadow: rgba(0,0,0,.18);
           --btn-top: #FDB750;             /* figma yellow/orange */
           --btn-bottom: #FFCB69;
           --btn-hover-top: #F5A623;
@@ -130,14 +138,14 @@ export default function KioskHome() {
         .kbtn{
           display:flex; align-items:center; justify-content:center; gap:10px;
           width:60%; height:74px;
-          margin-left: 110px;
+          margin-left: 135px;
           padding: 0 22px;
           border-radius: 20px;
           border: 0;
           background-image: linear-gradient(90deg, var(--btn-top), var(--btn-bottom));
           color: var(--btn-text);
           font-weight: 500; letter-spacing:.06em; 
-           font-size: clamp(18px, 3vw, 24px);  /* ↑ make text larger */
+          font-size: clamp(14px, 3vw, 22px);  /* ↑ make text larger */
           line-height: 1.15;                  /* comfy vertical rhythm */
           
           box-shadow:
@@ -178,8 +186,8 @@ export default function KioskHome() {
 
             {/* buttons */}
             <div className="btns" role="group" aria-label="Kiosk actions">
-              <button className="kbtn" onClick={() => nav("/kiosk/driver")}>
-                {/* truck icon */}
+              {/* <button className="kbtn" onClick={() => nav("/kiosk/driver")}>
+              
                 <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path d="M3 7h11v7h-1.5a2 2 0 0 0-3.9 0H6.4a2 2 0 0 0-3.9 0H2V9l1-2zM14 9h3.6l2.1 3v2h-1.1a2 2 0 0 0-3.9 0H14V9zM6.5 18a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Zm9 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z" stroke="currentColor" strokeWidth="1.6" />
                 </svg>
@@ -194,7 +202,21 @@ export default function KioskHome() {
                   <path d="m16.5 10.5 1.8 1.8 3.2-3.2" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
                 </svg>
                 {t("kiosk.homebutton2")}
+              </button> */}
+
+              {/* buttons */}
+            <div className="btns" role="group" aria-label="Kiosk actions">
+              <button className="kbtn" onClick={() => nav("/kiosk/driver")}>
+                <i className="pi pi-truck" aria-hidden="true" />
+                <span>{t("kiosk.homebutton1")}</span>
               </button>
+
+              <button className="kbtn" onClick={() => nav("/kiosk/return")}>
+                <i className="pi pi-pencil" aria-hidden="true" />
+                <span>{t("kiosk.homebutton2")}</span>
+              </button>
+            </div>
+
 
               {/* <button className="kbtn" onClick={() => nav("/kiosk/status")}>
                
