@@ -33,7 +33,7 @@ export const translations = {
     },
     kiosk : {
 
-      title : "Driver Check-In",
+      title : "Check-In/Check-Out",
       homebutton1 : "Check-in",
       homebutton2 : "Sign/Print BOL",
       homebutton3 : "Load Status",

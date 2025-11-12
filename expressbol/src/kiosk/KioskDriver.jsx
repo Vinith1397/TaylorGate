@@ -364,6 +364,7 @@ export default function KioskDriver() {
 
 //         .sheet {
 //           width: min(860px, 92vw);
+             
 //           background: linear-gradient(130deg, var(--tf-cream), var(--tf-cream-2));
 //           border: 4px solid var(--tf-green);
 //           border-radius: 22px;
@@ -403,7 +404,7 @@ export default function KioskDriver() {
         .back {
           display:flex; align-items:center; gap:8px;
           color: var(--tf-title);
-          font-weight: 700;
+          font-weight: 500;
           cursor: pointer;
           width:max-content;
           margin-bottom: 12px;
@@ -474,7 +475,7 @@ export default function KioskDriver() {
         /* Primary big green gradient button */
         .btn {
           appearance:none; border:0; cursor:pointer;
-          width: min(260px, 100%);
+          width: min(370px, 100%);
           height: 58px;
           border-radius: 16px;
           background: linear-gradient(90deg, var(--tf-green), #8BC850);
